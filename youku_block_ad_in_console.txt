@@ -1,0 +1,6 @@
+
+(function() { 
+'use strict'; 
+window.sessionStorage.setItem("P_l_h5", true); 
+document.getElementsByTagName('video')[0].currentTime = 100;
+})(); 
