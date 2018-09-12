@@ -1,0 +1,43 @@
+# install git
+
+# git login github
+# generate a two keys, private and public
+ssh-keygen -t rsa -C "mail address"
+# copy public key's content to github ssh key
+# test connection
+ssh -T git@github.com
+# global configuration
+git config --global user.email "mail address"
+git config --global user.name "login name"
+
+# get sources
+git clone (ssh/https)_xxx.git / git remote add origin git@github:name/project.git
+
+# check status
+git status
+# update sources
+git pull origin xxx (fetch and merge)
+# check branch
+git branch
+# create local branch
+git branch lcbranch
+## git branch -D branch # force
+## git branch -d branch
+# switch to localbranch
+git checkout lcbranch
+# stash new changes
+git stash
+## git stash list
+## git stash pop stash@{0}
+# merge new sources to local branch from master , pull new source then merge is good
+git merge origin master
+# add new file to cache arear
+git add newfile
+# commit added file to index branch
+git commit -m "message"
+# push to branches
+git push origin branch
+## git push --delete origin branch # delete remote branch
+# recover  changes
+git reset HEAD file
+git checkout file
