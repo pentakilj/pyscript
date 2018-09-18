@@ -41,3 +41,7 @@ git push origin branch
 # recover  changes
 git reset HEAD file
 git checkout file
+# difference of a file from old to the modification
+git diff file
+# rm a file, oppositive with add
+git rm file
