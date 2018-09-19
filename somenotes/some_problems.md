@@ -17,3 +17,16 @@
       1. except Exception as err: raise err , 暴露可能错误，然后继续执行
       2. 此结构中定义的变量，若要每个一个语句都能识别，最好在结构外 定义（或加global)
       3. finally 放置清理或必须执行的语句
+
+#### 3. 装饰器
+    1. 统一打印日志 ， 查看输入
+      def dec(foo):  # function as args to pass in
+          def inner(*args, **kwargs):  # function's args
+              # print args, kwargs
+              foo_return = foo(*args, **kwargs) #  return foo ??foo(...)
+              # print
+              return foo_return
+
+          return inner
+
+          
