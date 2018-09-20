@@ -1,4 +1,9 @@
 #### postgre
+(http://www.cnblogs.com/weaming/p/postgre-basic.html )
+    一. 安装
+      1. linux
+        postgresql-client 、 postgresql (server) 、 pgadmin3 (GUI)
+
 
     1. 登录（gaussdb, gsql)
       *sql -h host -d db -U user -W password
