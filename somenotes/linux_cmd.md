@@ -3,10 +3,14 @@
     netstate -antp    -a all -n show port as number -t tcp protocal -p program
     netstate -anup   -u udp protocal
 
-2. grep 过滤
+2. grep 过滤 （文档，日志等）
     grep 'pt' -i file  -i ignore cases 大小写, 'pt' patten, 过滤内容
     grep 'pt' -5 file -n int number, 'pt' 前后-n行内容
     grep 'pt' -v file  -v 不匹配行
+    grep -A 40 'pt' file  匹配到行的后面40行
+    grep -B 40 'pt' file  匹配到行前面40行
+
+    # sed
 
 3. scp 主机间安全传递文件
 
@@ -21,3 +25,8 @@
   # 解封IP
   iptables -D INPUT -s ***.***.***.*** -j DROP
   # -A append, -L list -F flush -n 以数字打印 -C check existence -p tcp/udp  protocol
+
+6. date 显示特定格式的时间（ man date） （文档，日志等）
+    date
+    date "+%Y-%m-%d %H:%M:%S"
+    date "+%Y-%b-%d %H:%M:%S"
