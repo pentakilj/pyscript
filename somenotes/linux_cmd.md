@@ -1,3 +1,5 @@
+`嵌套 cmd` 命令中嵌套命令
+循环  for name in `find ./ -name abc`;do ls -l $name; done
 1. netstate 查看绑定端口
     netstale -lntp -l listenning
     netstate -antp    -a all -n show port as number -t tcp protocal -p program
@@ -9,6 +11,7 @@
     grep 'pt' -v file  -v 不匹配行
     grep -A 40 'pt' file  匹配到行的后面40行
     grep -B 40 'pt' file  匹配到行前面40行
+    grep -E '(a:b)' file a or b
 
     # sed  流编辑器（读行， 执行单字母命令， 读行）  https://linux.cn/article-10232-1.html
     # 不接 任何参数是，sed处于显示模式，读入什么，打印什么 （内部行数是1开始）
@@ -37,12 +40,14 @@
     或 在地一个反斜杠\加任和字符来作为分隔符 与上述命令等级
     sed -ne '\*/home/cool*p' xx # /home/cool
     ##### 参数 -E 扩展正则表达式 （sed默认只理解posix基本正则表达式）
+    sed -ne '/2018/12/13:14:16:01/, '/2018/12/13:13:14:50/p' file 字符串过滤
 
-    
 
 3. scp 主机间安全传递文件
 
-4. awk
+4. awk 文本处理
+  -F ‘f’ 指定分割符
+  awk '{print $0}'过滤出整行 （$1地一个变量）
 
 5. iptables  IP包过滤器 （防火墙）
   # 禁止IP （DROP 丢弃包， ACCEPT 通过包， QUEUE 传包到用户空间， RETURN 停止匹配此条）
@@ -58,3 +63,14 @@
     date
     date "+%Y-%m-%d %H:%M:%S"
     date "+%Y-%b-%d %H:%M:%S"
+
+7. find 查找
+  -name 按名称 *name
+  -type d, f , s 按类型 文件夹，文件， 大小
+    find / -type d -name 1*
+  -exec cmd {} \; 执行命令
+    find / -name *a -exec ls -l {} \;
+
+8. stat 文件权限
+  stat -c %a file 按数字显示（不要以整数来理解， 444 > 440， 是用户组多了权限），安全起见，
+  权限越小越好
