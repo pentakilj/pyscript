@@ -74,3 +74,30 @@
 8. stat 文件权限
   stat -c %a file 按数字显示（不要以整数来理解， 444 > 440， 是用户组多了权限），安全起见，
   权限越小越好
+
+9. findmnt 查看目录挂载
+  findmnt -T /opt OR findmnt --target /opt 指定目录
+
+10. fdisk 查看磁盘 (parted)
+    fdisk -l (不同的磁盘类型， /dev/sda , /dev/hda, /dev/mapper/VolumeG_lv 映射 不同
+      磁盘组成逻辑卷)
+
+11. mkfs 格式化（显示磁盘忙碌，就重新删除再分 or ...)
+    mkfs -t ext4 /dev/sda1
+
+12. mount 挂载  （挂目录到不同分区） umount (解挂载)
+
+13. cp 复制
+    -r  -R, 递归的复制
+    -p  --preserve=mode,ownership, timestamps 保留文件的权限，时间等配置
+    -f  force
+
+14. tar 解压
+    -c 创建
+    -C 指定解压目录
+    -f 指定文件
+    -d 比较不同文件
+    -t 列出文件中文件
+    -x 解压
+    --delete 删除指定文件
+    --strip-conponents 跳过指定目录层数

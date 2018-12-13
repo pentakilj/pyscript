@@ -29,4 +29,14 @@
 
           return inner
 
-          
+
+#### 4. 内置排序（list等排序sort) sorted(iter, cmp=xx, key=xx, reverse=bool)
+    传入key,对排序有权重的 可以重operator 引入 itergetter(0,1,2) 输入第几个元素的权重0>1>2
+    reverse , true ,false 顺序，逆序
+    key,reverse 速度快于cmp, cmp每次都会比较
+
+#### 5. re 包 正则
+
+
+#### 6. reload(sys), sys.defaultencoding('utf-8') 知道默认str<->unicode的编码器
+      # coding:utf-8  定义注释，或说明中的编码

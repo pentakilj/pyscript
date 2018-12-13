@@ -38,10 +38,10 @@ git commit -m "message"
 # push to branches
 git push origin branch
 ## git push --delete origin branch # delete remote branch
-# recover  changes
+# recover  changes, including git add (but not commit)
 git reset HEAD file
 git checkout file
 # difference of a file from old to the modification
 git diff file
-# rm a file, oppositive with add
+# rm a file, oppositive with add( no it's commit)
 git rm file
