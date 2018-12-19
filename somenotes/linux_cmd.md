@@ -44,6 +44,7 @@
 
 
 3. scp 主机间安全传递文件
+  scp file user@ip:/path
 
 4. awk 文本处理
   -F ‘f’ 指定分割符
