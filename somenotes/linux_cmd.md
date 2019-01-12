@@ -12,6 +12,9 @@
     grep -A 40 'pt' file  匹配到行的后面40行
     grep -B 40 'pt' file  匹配到行前面40行
     grep -E '(a:b)' file a or b
+    grep -n 'pt' file 显示匹配的文本在文件中的行好
+    grep -w 'pt' file 精确匹配，pt必须是单独存在（行首？）或非词字符之后（也是单独存在）
+    grep -o 'pt' file 只显示匹配的部分（可以确认是否匹配正确）
 
     # sed  流编辑器（读行， 执行单字母命令， 读行）  https://linux.cn/article-10232-1.html
     # 不接 任何参数是，sed处于显示模式，读入什么，打印什么 （内部行数是1开始）
