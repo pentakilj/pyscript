@@ -44,7 +44,8 @@
     sed -ne '\*/home/cool*p' xx # /home/cool
     ##### 参数 -E 扩展正则表达式 （sed默认只理解posix基本正则表达式）
     sed -ne '/2018/12/13:14:16:01/, '/2018/12/13:13:14:50/p' file 字符串过滤
-
+    sed -ri 's/s1/s2/g' file 匹配file中的s1并用s2替换，
+		i 编辑已存在文件，r 使用扩展正则表达式
 
 3. scp 主机间安全传递文件
   scp file user@ip:/path
