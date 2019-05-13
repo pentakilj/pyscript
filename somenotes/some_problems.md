@@ -40,3 +40,8 @@
 
 #### 6. reload(sys), sys.defaultencoding('utf-8') 知道默认str<->unicode的编码器
       # coding:utf-8  定义注释，或说明中的编码
+	## 脚本不使用带来
+	os.environ['NO-PROXY'] = 'HOST'
+
+#### 7. 批量调用
+	key = [1, 2], map(foo, key)
