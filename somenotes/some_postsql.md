@@ -21,11 +21,12 @@
       create database user_db owner user;
       （当前数据库）用户
       create user dbuser with password "xxx";
+      create role xxx in xxx_group;???? to be checked
       创建schema（集合）
       create schema user_db authorization user;
     3. 恢复数据库
       *sql dbname < db.sql
-
+      *sql -h host -d db -f backup.sql
     4. 常用命令
       创建表
       create table user_tb(name type, date type);
@@ -48,9 +49,13 @@
       drop database db_name;
     5. 备份
       pg_dump db_name > /path/db.bak
+      # 单个db
+      pg_dump -h host -d db -f bk.sql
       # 所有
-      pg_dumpall > /path/db.bak
+      pg_dumpall > /path/db.baki
     6. 还原
       create target_db
       *sql target_db_name < /path/db.bak
       *sql newdb< /path/createobjects.sql
+      # 单个db
+      *sql -h host -d db -f bak.sql
