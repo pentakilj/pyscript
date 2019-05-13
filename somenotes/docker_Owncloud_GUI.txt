@@ -17,7 +17,7 @@ Docker Introdutions:
   ## Pull images from Docker Hub
   ## Costumlized images of ownloud
   ## if download speed is freaking slow, set dns to 1.1.1.1
-  ## server=/registry-1.docker.io/1.1.1.1
+  ## server=/registry-1.docker.io/1.1.1.1 or 8.8.8.8
     sudo docker pull owncloud/server
     sudo docker pull webhippie/redis
     sudo docker pull webhippie/mariadb
