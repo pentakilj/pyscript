@@ -12,11 +12,14 @@
     grep -A 40 'pt' file  匹配到行的后面40行
     grep -B 40 'pt' file  匹配到行前面40行
     grep -E '(a:b)' file a or b
-    ## 正则 ^ 开头， ^$ 空行
+    ## 正则 ^ 开头， ^$ 空行, $结尾
     grep -n 'pt' file 显示匹配的文本在文件中的行好
     grep -w 'pt' file 精确匹配，pt必须是单独存在（行首？）或非词字符之后（也是单独存在）
     grep -o 'pt' file 只显示匹配的部分（可以确认是否匹配正确）
-
+    ## 正则 [1-9a-zA-Z]{n,m} 匹配 连续n-m个数字字母， \ 转义
+    ## . 匹配任意非换行的字符
+    ## | 或者， (a|b)c 批评 ac 或 bc  ()固定内容
+    
     ### http://man.linuxde.net/sed
     # sed  流编辑器（读行， 执行单字母命令， 读行）  https://linux.cn/article-10232-1.html
     # 不接 任何参数是，sed处于显示模式，读入什么，打印什么 （内部行数是1开始）
@@ -24,6 +27,7 @@
     sed -n input
     # 引入sedm命令  -e 接如 打印之类的命令（不是参数, 也可不接）
     sed -n -e '1p' input  #打印第一行
+  # sed -n '1,3p' 打印1-3行
     # 打印命令 p  输出当前运行在模式空间的内容
     # $ 最后一行
     sed -n -e 'np' input # 打印第n行
@@ -102,6 +106,7 @@
     find / -type d -name 1*
   -exec cmd {} \; 执行命令
     find / -name *a -exec ls -l {} \;
+    -size +500M 查找大小超过500M的文件
 
 8. stat 文件权限
   stat -c %a file 按数字显示（不要以整数来理解， 444 > 440， 是用户组多了权限），安全起见，
@@ -125,7 +130,7 @@
     -f  force
 
 14. tar 解压
-    -c 创建
+    -c 创建  传入打包后的名称，及目录
     -C 指定解压目录
     -f 指定文件
     -d 比较不同文件
@@ -133,3 +138,13 @@
     -x 解压
     --delete 删除指定文件
     --strip-conponents 跳过指定目录层数
+    
+   15. nl  给文件加上行好
+   16. sort 排序
+   17. uniq 去重
+   18. paste 组合文件
+   19. wc 统计行数
+    -l
+    20. diff 对比文件 -c 详细打印
+   
+   21 shell for, if , while, done
