@@ -146,5 +146,11 @@
    19. wc 统计行数
     -l
     20. diff 对比文件 -c 详细打印
-   
+    21. chown  root:root file 改变属主和组
+    22. chmod 改变权限  -rwx rwx rwx 777
+    23. job 查看后台任务
+    24. fg 调出后台任务
+    25. kill 杀死进程 -9 pid ， %id 杀死后台进程
+    26. ps 查看进程， ef aux
    21 shell for, if , while, done
+   
