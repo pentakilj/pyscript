@@ -134,7 +134,7 @@
     -C 指定解压目录
     -f 指定文件
     -d 比较不同文件
-    -t 列出文件中文件
+    -t 列出文件中文件 -tf 测试文件中的内容，而不真是解压
     -x 解压
     --delete 删除指定文件
     --strip-conponents 跳过指定目录层数
@@ -143,14 +143,14 @@
    16. sort 排序
    17. uniq 去重
    18. paste 组合文件
-   19. wc 统计行数
-    -l
+   19. wc 统计行数 -l
     20. diff 对比文件 -c 详细打印
     21. chown  root:root file 改变属主和组
     22. chmod 改变权限  -rwx rwx rwx 777
     23. job 查看后台任务
     24. fg 调出后台任务
     25. kill 杀死进程 -9 pid ， %id 杀死后台进程
+	killall cmd, 杀死一系列相同的命令
     26. ps 查看进程， ef aux
    21 shell for, if , while, done
    
