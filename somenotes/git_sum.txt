@@ -1,14 +1,24 @@
 # install git
 
 # git login github
-# generate a two keys, private and public
+# generate a two keys, private and public, your login email?? hope so
+# and it will be in ssh cache, if don't want to input password, just don't input when create
 ssh-keygen -t rsa -C "mail address"
+
+#  not  nesersary? add key to ssh-agent
+eval "$(ssh-agent -s)"
+> here will show process' pid
+ssh-add ~/.ssh/id_ras  # add you key, not pub
+# ssh-add -l list  key  -d delete key -D delete all key
+
+
 # copy public key's content to github ssh key
 # test connection
 ssh -T git@github.com
 # global configuration
 git config --global user.email "mail address"
 git config --global user.name "login name"
+
 
 # get sources
 git clone (ssh/https)_xxx.git / git remote add origin git@github:name/project.git
