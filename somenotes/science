@@ -1,0 +1,254 @@
+17
+I II III
+Data: 数据类型
+    Numbers: integer type, float type?
+        int(0, 1)（20bilion 20亿左右 为 long), float(0.1, 1.0) （最大17位数）
+    Strings: str type, ' ', " "
+        str, foo = ' ', " " foo[0], foo[1], foo[x:y],foo[1:]( slices of value from x to y)
+        foo = foo + '..'
+    Booleans: Bool type, and or not, > >=, ==, !=, <= <
+        True, False
+    --Value & Type
+    Data Structure:
+        Lists , foo = [ , , ] foo[0], foo[1], foo[x:y],foo[1:]( slices of value from x to y)
+            foo = foo + [..]
+        Tuple , foo = ( , , ) foo[0], foo[1], foo[x:y],foo[1:]( slices of value from x to y)
+            foo = foo + (..)
+        Dict, Not orderd, generalized indexings <key, value> pairs: Hashing
+            foo = { 'key': 'value' } foo['key'] = 'value'
+VI
+Non-scalar: 
+    Tuple, Strings ， Immutable(不可改变)
+    List ,  Dictionaries , Mutable
+    
+Operations:
+    Branching(Condition条件):  分支 & 嵌套nested(代码分层） ：colon（开始一个block集合）
+        if ... :block
+        elif ... :block
+        else:   block
+        
+    Combine Expression: 
+        1,operands(计算对象） and operators: 
+            ##a =0.99999999999999999999 = 1.0 ， 计算机储存的是近似的数 ，直接显示本身value 0.999..
+            ## print 则是1.0, print 会对value取整 {abs( a*a -2.0) < epsilon} 计算有可能出错
+            Numbers, Strings: *（**多少次方）, / , %, +, -(negative)，=（assignment, banding) value
+            Booleans:and or not, > >=, ==, !=, <= < 
+    Iteration(Loop): 迭代，循环
+        # program: 1, chooose variable that 'count' 2, initalize outside the loop
+        # 3, setup the test( variable) 4, construct block(loop),change variable
+        # 5, what to do when done.
+        1,for <...> in <...> :
+             |block
+        2,while ...:
+             |block
+        3. Recursion 递归: 不是所有问题都要或者都可以循环或递归，也会有其他方法可以处理。
+            --base case - simplest possible solution
+            --the inductive step(归纳法)/the recursive step -break the problem into a simpler version
+            of the same problem and some other steps.
+            classic example:
+            1.
+            def isPalindrome(s):
+                '''Return True if s is a palindrome(回文) and False otherwise'''
+                print 'block' # 每次调用先打印I
+                if len(s) <= 1: 
+                    print 'block' # 此处只打印一次
+                    return True # 返回，函数结束
+                else: 
+                    ans = s[0] == s[-1] and isPalindrome(s[1:-1])# 表达式的值赋值给ans
+                    print 'block'# 先调用上面函数，递归之后（打印I），等到执行本次条件再开始打印II
+                    return ans# 返回
+            2. 
+            def febonacci(x):# 如fib.py
+                '''Return fibonacci of x, where x is a non-negativ int'''
+                if x == 0 or x == 1: return 1
+                else: return fibonacci(x-1) + fibonacci(x-2)
+                
+            
+Conmmands（Statements 声明）：命令, build-in(内置)
+    Assignments, Input/Output(I/O), Conditionals(brunchs), Looping constructs(while, for)
+    1,varibles: 
+        store data
+    2,Input-evaluates and print:
+            raw_input(),input
+            print
+
+Keyword:
+    def, return, int, in, assert， for , while , import, from, raise, try-except, class，None
+IV
+Decomposition(分解） Astraction(抽象):
+    --Functions:
+        -block up to modules
+        -supress detail
+        -create 'new primtives' 新思考方式
+        ###Creat Functions
+        def  -- keyword definition
+        -name(followed def) (x) x 是函数的形参formal parameters,也可以没有参数（还是需要括号来定义没有参数）
+        传入的参数和变量只在函数内有效(local bindings),不影响全局（globle bindings）
+        def foo(x):
+            ''' information '''
+            """ creator giving information """
+            |block...
+        return --keyword
+        None --special value, no value.    
+        Call/Invoke fanction: passing in values for the parameters
+        foo('...')
+        14
+    -- Module( modularity) , a module as  a clollection of related functions, refer to
+        the functions using dot notation（用圆点标记来调用函数）
+        15，16
+    --class  -collection of objects with characteristics in common 
+            or -- a template for an abstract data type 一种虚拟数据类型的模板
+        object = collection of data and functions 
+        user defined types
+        Instance - method|
+                 - fields| attributes属性，dir(a)
+        ecapsulation 封装  
+        class A:
+            pass
+        a = A(), b = A(), a.x = 1, b.x=1, a is b:False, here means class(object),
+             a.x == b.x:True, here means value
+        method(functions), --can access the value of the specificie instance   
+        __init__ creat a instance, use 'self' to refer to that instance.
+        __str__  printed representation
+        __cmp__  comparisons 比较
+        __eq__  equal
+         
+Good Style:       
+    comments: # 
+        内建函数: ord, help, str, int, float, type, len, range, abs, max, min
+        Exceptions异常: try-except block## 控制程序的运行
+            -unhandled
+            -handle  可处理
+            --  try :
+                    try:
+                    except:raise ' aa '# 传递异常（获取异常，但不在当前层处理，传递到顶层(程序控制）
+                except 'aa':# 获得传递的异常（能够知道什么地方出错）
+        assert断言：# 必须为真，否则抛出post-condition
+            pre-condition, post-condition
+        # assert 用来表明输入必须满足前提条件，否则在顶层抛出问题，结束程序  ，用来调试或则测试  
+        # except 能预期的异常，能尝试处理
+    flow chart:
+    伪代码: what to do step by step
+    Type checking.
+    Defensive Programing:
+        ans = 0
+        if x >= 0:# check
+            while ans*ans < x:
+                ans = ans + 1
+                print 'ans =', ans 
+            if ans*ans != x:# check
+                print x, 'is not a perfect square'
+            else: print ans# check
+        else: print x, 'is a negative number' #check
+        
+     type discipline: 3 < '3'
+     
+ when in doubts , you parahen ( )
+ 
+ assignment =,  x = 3 not just only number, expression can be assigned.
+ 
+ don't changes types abitrally(频繁）
+ 
+ 
+ IV ,V
+ Algorithm: 算法
+     1.Brute-fore algorithm 穷举算法（Enumerate)(指数）
+         #(integers, reals(实数）则不行，floatk（17位）最好看作实数，也可以但时间太长）, uncountable
+         Farmyard problem: linear problem(线性) Enumerate & check 
+         20 heads, 56 legs , pig, chicken
+     2.Successive approximation 逐次逼近法
+          
+        1. linear search 线性查找(有序的集合）
+            --guess = inital guess
+            -- for iter in range(some)
+                -- if foo(guess) close enuough , return guess
+                -- else, guess = better guess
+            --still not enough, Error
+            Guess , Enumerate & check
+        2.Bi section method(二分法）##（如bi.py)
+             --liner possible answers,  _1_______|_____2____
+             --if < middle, 1
+             --else , 2            
+             1. Binery Search二分查找（有序的集合，list）
+                --Pick the midpoint
+                --check to see if this is the answer
+                --if not, reduce to a smaller problem and repeat
+                无序集合时, 搜索一次时，线性最优，k(k>1)次是，则是排序后在搜索（Amortize the cost分摊开销)
+                复杂度
+                linear&s  sort& Bsearch
+                 k*n       n*log n + k*log n
+                Sort 排序
+                1.Selection sort 选择排序（平方）每次循环，只选一次
+                2.Bubble sort 冒泡排序（平方）每次循环，选择多次
+                3.Divide and Conqure 分治法(2分法）：
+                    -split the problem into serveral sub-problems of the same type.
+                    -solve independently
+                    -conbine solutions
+                ---Merge sort 归并排序（n* log n)（适用 简单的分解，且合并不复杂的问题)
+                        -divide the list in half
+                        -continue until we have singleton lists 单个元素列表
+                        - merge of the sub-lists(合并，会有很多的step）
+                4. Hashing 哈希算法(hard to creat)## 牺牲空间，获得效率, 可以查内建hash函数
+             VVII 12,13,14
+             动态编程Dynamic Programming(对指数级运算，效果更明显 n*S n items, S size, size of solution )
+             1. Overlap problem 重叠问题 (冗余 rongyu）  (重复使用某些值， fib(2), fib(3) ..fib(n))
+             #### 计算想fib（n)会遇到多次调用相同的实例iinstance，重叠overlap运算，可以通过保存运算的结果减少
+             #### 运算复杂度，如 默记法memoization（特殊的 Table loopup 查遍) : 在第一次运算是就记录一个值，在
+             #### 后面的问题中在使用/查找这个值
+             #### -- Record value 1st time
+             #### -- then look it up the subsequent times we need it
+             def fastfib(n, memo):
+                globle numCalls
+                numCalls += 1
+                #print 'fib called with', n
+                # 如果n存在，则不用再次计算
+                if not n in memo:# n === key , memo dict
+                    memo[n] = fastFib(n-1,memo) + fastfib(n-2, memo)
+                return memo[n]
+              def fib(n):
+                memo = {0:1, 1:1}
+                return fastFib(n, memo)
+             2. 最优化问题Optimization problem
+             ### 1. 重叠的子问题 overlaping sub-problems
+             ### 2. 最优子结构 optimal substructure
+              基于 决策树decision tree(VVIII 13), 二叉树？？？？？ 背包问题
+              W = [5, 3, 2] V = [9, 7 ,8]
+              
+        2. 牛顿-拉福生方法
+VII, VIII          
+    Efficiency --效率 space & time
+        -choice of algorithm
+        -map problem into close of algorithm
+    Complexity --复杂度（最坏的情况来考虑)
+        1,log， 每次运算减少固定部分： 2分法  ， 每次减小一半
+        2,linear 每次运算减少一次或常数次，
+        3,平方 每次运算增加n次， for i in (m): for j in (m): m**2
+        4,指数 Tower of Hanlota
+    
+    Orders of growth --增长的次序
+    
+             
+Regression testing:(回归测试）
+    伪代码
+    print & read(二分法运用)
+
+Libs:
+###############函数参数： 必选， 默认， 可变， 关键字 四中参数，顺序也需这样
+######## def foo(a, b=0,*argv, **argv) 在函数接受参数后，*会组成 tuple **会组成 dict
+######## 如果有list(ll), dict(dd) 也可foo(a,*ll, **dd) 传入 
+from sys import argv,exit    scriptname, variable = argv ,exit()
+from os.path import exits  exists(file)
+from multiprocessing import Processing,Lock# 构建自己的MyProcess
+import urllib   urllib.urlopen
+    urllib2     urllib2.urlopen, urllib2.quote()
+    re      re.findall(), re.compile()#正则式
+    os
+    math
+    time   sleep(), localtime()    
+    
+    
+ misuse of data数据滥用
+ 0.Beware of peopel who give properties of data,but not the data 数据来源？
+ 1.with this, not because of this ,联系不等于因果 collection != cuasation 隐藏变量Lurking variable
+ 2.Non-response bias非响应倾向 Non-reprentative sample 无代表性
+ 3.Data enhancement 提升数据（夸张？谬误，yiduan已段？） 上下文比较 extrapolate

@@ -1,0 +1,15 @@
+ctr + a :  行首
+ctr + e :  行尾
+esc + b :  当前单词的开头
+esc + f :  当前单词的结尾
+alt + u :  当前词转换为大写
+alt + l :  当前词转换为小写
+
+ctr + c :  取消（整行）
+
+
+
+# 历史记录前后翻找 map "page up" and "page down" to search histroy
+# vi /etc/inputrc
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
