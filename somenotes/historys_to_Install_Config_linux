@@ -1,6 +1,9 @@
 Attack: mdk3
 
 Manjaro( Arch ):
+  # verify ISO
+  gpg  --verify *.sig *
+
   ## Use Arch linux mirrors to install brand new packages
   ## Manjaro mirrors to upgrade system
 
@@ -20,6 +23,8 @@ Manjaro( Arch ):
   sudo rm -rf chrome/chromium/firefox
   #sudo rm  /usr/lib/firefox/distribution/distribution.ini
   #sudo mv /etc/lsb-release backup/lsb-release.from_etc
+  # in gnome desktop , not needed
+  sudo pacman -R firefox empathy  evolution steam-manjaro transmission-gtk uget
 
   ## some default setting from manjaro community
   ## sudo rm -rf /usr/lib/chrome/chromium/firefox
@@ -44,10 +49,11 @@ Manjaro( Arch ):
   ## Some packages , Sublime-Style-Column-Selection for atom
   sudo pacman -S firefox chromium transmission-gtk thunderbird atom
   sudo pacman -S pepper-flash flashplugin  arc-gtk-theme
-  sudo pacman -S vlc vim audacity audacious inkscape bleachbit stellarium shutter git nmap screenfetch tree gedit xed
+  sudo pacman -S vlc vim audacity audacious inkscape bleachbit stellarium shutter git nmap screenfetch tree gedit xed docker
 
   # tools http-api test, download
-  sudo pacman -S httpie aria2
+  sudo pacman -S httpie aria2 curl
+  # others : gnome map, redshift, net-tools for ifconfig and route, bind-tools(dnsutils) for dig and nslookup
 
   # night light, ~/.config/redshift.conf
   sudo pacman -S redshift python-xdg (for redshift) #Okular(PDF)

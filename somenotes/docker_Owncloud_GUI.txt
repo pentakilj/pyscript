@@ -23,7 +23,7 @@ Docker Introdutions:
     sudo docker pull webhippie/mariadb
 
   ## 1 . Operations
-
+    ## 最好单独建一个目录
     ## Build with [-t tag, '.' current dir] Dockerfile
     sudo docker build -t .
 
