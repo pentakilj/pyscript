@@ -63,7 +63,7 @@ Manjaro( Arch ):
   sudo pacman -S vlc vim audacity audacious inkscape bleachbit stellarium shutter git nmap screenfetch tree gedit xed docker
 
   # tools http-api test, download
-  sudo pacman -S httpie aria2 curl
+  sudo pacman -S httpie aria2 curl uget
   # others : gnome map, redshift, net-tools for ifconfig and route, bind-tools(dnsutils) for dig and nslookup
 
   # night light, ~/.config/redshift.conf
