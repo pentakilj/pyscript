@@ -7,6 +7,17 @@ Manjaro( Arch ):
   ## Use Arch linux mirrors to install brand new packages
   ## Manjaro mirrors to upgrade system
 
+  ## systemd默认的时间工具
+  ## 设置 系统时间, windows 使用的localtime, MAC, linux都是UTC(与格林威时间大致相同)
+  ## 直接开启ntp同步时间就行， 待确定如何修改同步服务器
+  timesynctl set-ntp true
+  ##  是否启用localtime
+  ## timedatectl set-local-rtc true/false/0/1
+  ## 查看系统时间同步状态
+  ## timedatectl timesync-status
+  ## timedatectl show
+  ## timedatectl status
+
   ## python3 has been used , do not link /usr/bin/python to python2
   ## use 'ls -l /usr/bin/python' to check
   sudo pacman-mirrors -i -c China -m rank

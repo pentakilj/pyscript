@@ -153,4 +153,5 @@
     25. kill 杀死进程 -9 pid ， %id 杀死后台进程
 	killall cmd, 杀死一系列相同的命令
     26. ps 查看进程， ef aux
+    27. faillock --reset
    21 shell for, if , while, done

@@ -18,11 +18,16 @@ Docker Introdutions:
   ## Costumlized images of ownloud
   ## if download speed is freaking slow, set dns to 1.1.1.1
   ## server=/registry-1.docker.io/1.1.1.1 or 8.8.8.8
+  ## 实在觉得慢，最好白天下载，不确定是否是docker官方服务器做了限制
     sudo docker pull owncloud/server
     sudo docker pull webhippie/redis
     sudo docker pull webhippie/mariadb
 
   ## 1 . Operations
+    docker pull 拉取镜像
+    docker exec 容器中执行命令
+    docker inspect 查看镜像信息
+
     ## 最好单独建一个目录
     ## Build with [-t tag, '.' current dir] Dockerfile
     sudo docker build -t .
@@ -47,7 +52,6 @@ Docker Introdutions:
     -- link a_container: as_tag
 
   ## 2 .  Containers
-
     sudo docker container rm/ls/stop/log [-h]
     ## Backgroud: -d, attach/exec
     ## # backgroud-run container, id:123
@@ -59,7 +63,6 @@ Docker Introdutions:
       sudo docker exec cmd
 
   ## 3. Volume
-
     # create
     sudo docker  volume create myvol
     #  list &etc
@@ -180,7 +183,11 @@ Dock Instances:
         export OWNCLOUD_HTTPS_PORT=443
 
   Nextcloud with Docker:
-    # command interface is php script
+    直接使用nextcloud:latest 内部打包了数据库和apache
+    docker pull nextcloud
+    docker run -d -p 8080:80 nextcloud  #启动到本地服务器
+    # nextcloud命令, container_id 完成的ID或前3位
+    docker  exec --user www-data container_id php occ  xx_cmd
     #  docker exec --user www-data 753 php occ
 
     docker volume create nextcloud_mysql
