@@ -16,7 +16,8 @@ names =	[
         'CrossUpdate.exe', 'GoogleUpdate.exe', 'MpCmdRun.exe', 'Updater.exe',
         'GPRender.exe', 'mctoolbar.exe', 'yygame.exe', 'CrossProxy.exe',
         'DownloadSDKServer.exe', 'Thunder.exe', 'xlbrowser.exe', 'XLServicePlatform.exe',
-        'QQProtect.exe', 
+        'QQProtect.exe', 'TASLogin.exe', 'osrss', 'QSBrowser.exe', 'QSSubProcess.exe',
+		'browser.exe','railtemp30C5C962.exe','wegame.exe',
 	]
 # get processes
 def getAliveTask():
