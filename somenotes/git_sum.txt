@@ -58,6 +58,7 @@ git rm file
 # for github fork a branck and sync
 # address must be git's ssh url git@url:project
 git remote add your_new_tag_name  git@github.com:project/name.git (googlehosts/hosts.git)
+# git remote add googlehosts git@github.com:googlehosts/hosts.git
 git remote -v # checkt remote branc
 git fetch your_new_tag_name # sync the remote branch to local
 git merge your_new_tag_name/master # merge remote branch to master
