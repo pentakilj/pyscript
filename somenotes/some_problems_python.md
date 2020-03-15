@@ -45,3 +45,9 @@
 
 #### 7. 批量调用
 	key = [1, 2], map(foo, key)
+
+#### 8. 安装 requirements.txt
+	pip install -r requirement.txt
+	# 对于权限有限制的可以加上 -user 仅当前用户
+	# 生存requirement.txt 
+	pip freeze > requirement.txt
