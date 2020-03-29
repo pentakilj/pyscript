@@ -12,6 +12,7 @@
     grep -A 40 'pt' file  匹配到行的后面40行
     grep -B 40 'pt' file  匹配到行前面40行
     grep -E '(a:b)' file a or b
+    --binary-files=text 用zcat 等打开压缩日志，然后指定文本类型然后可以象普通文本一样过滤
     ## 正则 ^ 开头， ^$ 空行, $结尾
     grep -n 'pt' file 显示匹配的文本在文件中的行好
     grep -w 'pt' file 精确匹配，pt必须是单独存在（行首？）或非词字符之后（也是单独存在）
@@ -151,7 +152,40 @@
     23. job 查看后台任务
     24. fg 调出后台任务
     25. kill 杀死进程 -9 pid ， %id 杀死后台进程
-	killall cmd, 杀死一系列相同的命令
+	   killall cmd, 杀死一系列相同的命令
     26. ps 查看进程， ef aux
+      -aux 包含进程状态
+      xf 显示进程树
     27. faillock --reset
+        arch用的 faillog
+    28. xargs
+      -i{} 使用特定标志{}代替变量
+    29. chcon selinux安全配置
+      ls -Z 可以查看, 主要有 user, role, type
+    30. 文件监控审计
+      -p war  # 监控文件 读，写，权限变化
+      -p x    # 监控命令的执行
+      -w  path
+      -k keyword
+      auditctl -w /root/aa -p awr -k aa_test # 文件监控
+      auditctl -w /bin/ps -p x -k ex #命令监控
+      # 搜索查看audit事件
+      ausearch -c cmd # 用cmd搜索
+      ausearch -k keywd # 用keyword搜索，可在设置规则时定义key
+    31. route
+      # 默认执行查看路由变，并解析为hostname
+      # 以数字得形式列出路由，不解析为hostname
+      route -n
+
+      # 添加路由  ，均为临时路由
+      route add
+      # 需要指明添加得目标,如 -net 网络 -host 设备， 并填写能定位到
+      # 准确地址的IP地址， 如 192.3.4.0/24 或者 加上子网掩码 255.255.255.0来指定
+      # IP地址范围， 最后必须加上网关，才能使这条路由生效，可达
+      route add -net ip_addr netmask 255.255.255.0 gw gateway_ip
+
+      # 删除路由
+      route del
+      # 删除时不需要指定网关， 但是要是明确的IP， 即为 IP加上netmast，或者ip段
+
    21 shell for, if , while, done
