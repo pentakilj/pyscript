@@ -29,7 +29,12 @@ Manjaro( Arch ):
   sudo pacman -S virtualbox
   sudo modprobe vboxdrv
   sudo pacman -Sc
-
+  ## docker
+  dnsmasq
+  nextcloud
+  diygod
+  numdup
+  163proxy
   ## Manjaro conflict
   sudo rm -rf chrome/chromium/firefox
   #sudo rm  /usr/lib/firefox/distribution/distribution.ini
