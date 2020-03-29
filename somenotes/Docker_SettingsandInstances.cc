@@ -1,4 +1,4 @@
-Installations:
+=========================== 1. Installations  ===========================
   ## Install on manjaro
     sudo pacman -Syy
     sudo pacman -S docker
@@ -13,7 +13,7 @@ Installations:
   ## Check docker info
     sudo docker info [-h]
 
-Docker Introdutions:
+=========================== 2. Docker Introdutions ===========================
   ## Pull images from Docker Hub
   ## Costumlized images of ownloud
   ## if download speed is freaking slow, set dns to 1.1.1.1
@@ -23,35 +23,33 @@ Docker Introdutions:
     sudo docker pull webhippie/redis
     sudo docker pull webhippie/mariadb
 
-  ## 1 . Operations
+  ################ 1 . Basic Operations ################
     docker pull 拉取镜像
     docker exec 容器中执行命令
     docker inspect 查看镜像信息
-
+  ################ 2. Build Images   ################
     ## 最好单独建一个目录
     ## Build with [-t tag, '.' current dir] Dockerfile
     sudo docker build -t .
-
+  ################ 3. List Image ################
     ## List images
     sudo docker images / sudo docker image ls [-h]
         ## Format : Go languages tamplate grammer
         sudo docker image ls --format "table {{.Repository}}\t:  {{.Size}}"
-
+  ################  4. Docker system   ################
     ##Disk usage of Images, Containers, Volume
     sudo docker system df [-h]
-
+  ################ 5. Run a container from image   ################
     ## Run container, use command  'bash' to match -it
     ##  -it interactive terminal
     ##  --rm delete after quit container
     ## sudo docker pull ubuntu:18.04
     sudo docker run -it --rm ubuntu:18.04 bash
-
     ## Delete image
     sudo docker image rm [ repository/id( 3 char at least ) ]
     ## link
     -- link a_container: as_tag
-
-  ## 2 .  Containers
+  ################ 2 .  Containers   ################
     sudo docker container rm/ls/stop/log [-h]
     ## Backgroud: -d, attach/exec
     ## # backgroud-run container, id:123
@@ -62,7 +60,7 @@ Docker Introdutions:
       # run command in a running container in
       sudo docker exec cmd
 
-  ## 3. Volume
+    ################  3. Volume  ################
     # create
     sudo docker  volume create myvol
     #  list &etc
@@ -74,8 +72,8 @@ Docker Introdutions:
           # --mount sourece=myvol,target=/mnt/data \
           ubuntu:18.04  bash
 
-Dock Instances:
-  Mysql:
+=========================== 2. Dock Instances ===========================
+  ################ 1. Mysql     ################
     # host client: mysql-clients
     # https://hub.docker.com/_/mysql/
     # https://github.com/datacharmer/test_db  employees
@@ -93,11 +91,9 @@ Dock Instances:
     mysql -h 192.168.1.108 -u root -p -t  < test_employees_md5/sha.sql
     # API for python connecting mysql
     pip install mysql-connector
-
-  Owncloud with Docker:
+  ################ 2. Owncloud with Docker   ################
     mkdir owncloud
     cd owncloud/
-
     docker volume create owncloud_redis
     # port 6379
     docker run -d \
@@ -105,7 +101,6 @@ Dock Instances:
       -e REDIS_DATABASES=1 \
       --volume owncloud_redis:/var/lib/redis \
       webhippie/redis:latest
-
     ## mkdir mysql
     docker volume create owncloud_mysql
     docker volume create owncloud_backup
@@ -134,7 +129,6 @@ Dock Instances:
     # Owncloud
     docker volume create owncloud_files
     # run and set host localhost, other client visit via local mathine's ip addr
-
     docker run -d \
           --name owncloud   \
           --link mariadb:db   \
@@ -153,7 +147,6 @@ Dock Instances:
           -e OWNCLOUD_REDIS_HOST=redis   \
           --volume owncloud_files:/mnt/data   \
           owncloud/server:10.0.7
-
     # template
     docker run -d   \
       --name owncloud  \
@@ -181,15 +174,13 @@ Dock Instances:
         export OWNCLOUD_DOMAIN=localhost
         export OWNCLOUD_HTTP_PORT=80
         export OWNCLOUD_HTTPS_PORT=443
-
-  Nextcloud with Docker:
+  ################ 3. Nextcloud with Docker   ################
     直接使用nextcloud:latest 内部打包了数据库和apache
     docker pull nextcloud
     docker run -d -p 8080:80 nextcloud  #启动到本地服务器
     # nextcloud命令, container_id 完成的ID或前3位
     docker  exec --user www-data container_id php occ  xx_cmd
     #  docker exec --user www-data 753 php occ
-
     docker volume create nextcloud_mysql
     docker volume create nextcloud_backup
     docker pull mariadb
@@ -206,7 +197,6 @@ Dock Instances:
           --volume nextcloud_mysql:/var/lib/mysql \
           --volume nextcloud_backup:/var/lib/backup \
           mariadb:latest
-
     docker volume create nextcloud_data
     # this version include apache
     docker pull nextcloud:latest
@@ -227,9 +217,8 @@ Dock Instances:
         #  another version :nextcloud:fpm
           # virsion:13
     # when first run, database host is db, not localhost
-
+=========================== 2. Dock GUI Instances ===========================
   GUI: ## jessfraz @ github
-
     Chrome:
       ## RUN
       sudo docker run -it --rm \

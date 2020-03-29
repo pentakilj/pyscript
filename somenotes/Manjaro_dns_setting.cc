@@ -1,13 +1,11 @@
 #################  LINUX DNS 设置 ####################
-
 ## dig 或 drill 可检查
 ## 相互影响 可停止
 ##################
 1. resolvconf
 2. systemd-resolve
-
-##################
-
+============================== Manaro Setting Start ==============================
+============================== 1. 设置DNS ==============================
 # Manjaro 默认使用NetworkManager作为网络管理，默认会覆盖 /etc/resolv.conf文件
 1. 界面修改DNS
    直接在网络设置中修改
@@ -19,8 +17,7 @@
 # 然后重启NetworkManager
 # resolvectl flush-caches #刷新缓存DNS
 # 然后开心的使用dnsproxy-proxy
-
-############### 取消NetworkManager管理DNS ###############################
+==============================  2. 取消NetworkManager管理DNS ==============================
 # 在NetworkManager配置文件中添加配置，取消关联
 # path:  /etc/NetworkManager/conf.d/
 # 配置文件中新增配置， 无，则新增配置文件
@@ -33,20 +30,15 @@ rc-manager=resolvconf
 # 同时新建一个 任意名称的 conf ： stop_dns.conf
 [main]
 dns=none
-
-############################ 修改resolv.conf #######################
+============================== 3. 修改resolv.conf ==============================
 # resolv.conf中的修改，默认提升会被resolvconf覆盖
 1. 可向 resolf.conf 顶部插入新的DNS
 # 新建文件 /etc/resolv.conf.head, 然后重启服务， 以下DNS会被插入到resolv.conf文件中
 nameserver x.x.x.x
 # resolvconf -u # 使/etc/resolv.conf的配置立刻生效
 2. 或者直接卸载 resolvconf, 保留配置文件 resolv.conf（需要防止其他应用覆盖）
-
-
 # 待更新
-
-
-######################  NetworkManager使用 dnsmasq 管理DNS ###############
+==============================  4. NetworkManager使用 dnsmasq 管理DNS ==============================
 # 1. 设置NetworkManager的管理DNS主程序 配置文件
 #  若启动dnsmasq失败, 检查配置文件的端口53 是否被占用， 关闭占用端口程序或修改配置文件的端口
 # path: /etc/NetworkManager/conf.d/dns.conf # 文件名任意
@@ -55,10 +47,9 @@ nameserver x.x.x.x
 # dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
 [main]
 dns=dnsmasq
-
 # 新增配置到  /etc/mydns.d/
 #  systemctl disable dnscrypt-proxy.service
-########## dnsmasq 配置 ##########
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ dnsmasq 配置 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ######## START ###########
 # 定义dnsmasq从哪里获取上游DNS服务器地址
 resolv-file=/etc/mydns.d/resolv.dnsmasq.conf
@@ -77,26 +68,18 @@ listen-address=::1
 server=/cn/bilibili.com/114.114.114.114
 # 国外
 server=/bing.com/1.1.1.1
-
 # 启用泛域名解析，即：自定义解析记录，固定网站的解析地址
 # address=/baidu.com/10.2.2.2
-
 # 对于解析到此IP的域名，响应nxdomain使其失效
 # 应对输入不存在的域名跳转到移动或电信的广告
 # bogus-nxdomain=x.x.x.x
-
 # 不加载本地/etc/hosts
 no-hosts
 # 添加额外hosts路径
 addn-hosts=/etc/mydns.d/hosts
-
 # 重启清空缓存
 clear-on-reload
-
-########## END ################
-
-
-################### dnsmasq 配合 dnscrypt-proxy  加密DNS访问 #################
+============================== 5. dnsmasq 配合 dnscrypt-proxy  加密DNS访问 ==============================
 # 1. Arch 安装 dnscrypt-proxy , 然后启动服务
 # 2. 停止系统的dns服务 systemcd-resolve
 #  不停止，会导致dnsmsaq无法启动（默认使用53端口， 系统resolve占用）

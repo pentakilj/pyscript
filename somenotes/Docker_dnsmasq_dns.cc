@@ -1,4 +1,5 @@
-########## Docker化 DNSmasq ##################
+############################## Docker化 DNSmasq ##############################
+=============================  1. docker镜像设定 =============================
 #参考github: Storytel/dnsmasq
 # docker hub上star前3的
 1. 构建dnsmasq镜像  Dockerfile
@@ -15,7 +16,7 @@ VOLUME ["/etc/dnsmasq"]
 ### 默认执行命令
 CMD ["dnsmasq"]
 ################ end ####################
-
+============================= 2. 宿主机启动及监听设定 =============================
 2. host主机中设置自定义的配置文件 .conf ,用于启动容器时挂载
 ### 参考dnsmasq的配置 ， 同时最好加上日志
 log-queries
@@ -28,15 +29,15 @@ log-facility=/etc/dnsmasq/query.log
 ## 后续也可以优化 /etc/resolv.conf
 ## 加上--restart always 故障后自动启动容器
 ## --dns=127.0.0.1  启动是设置dns，以免重启容器后dns回复成默认的主机映射
-# windows
+################ windows ################
+### windows下面无法和 与dnscrypt配合使用
 docker run -d --name dnsmasq \
       --cap-add=NET_ADMIN  \
       -p 127.0.0.1:53:53/tcp \
       -p 127.0.0.1:53:53/udp  \
       -v C:\Users\JACGG\dnsmasq:/etc/dnsmasq \
       dnsmasq
-
-# linux , 需要53端口没被占用
+################ linux , 需要53端口没被占用 ################
 docker run -d --name dnsmasq \
 	--cap-add=NET_ADMIN \
 	-p 127.0.0.1:53:53/tcp \
@@ -45,19 +46,18 @@ docker run -d --name dnsmasq \
 	--restart always dnsmasq:alpine39
 ## and login container , add read access to query.log for other user
 chmod o+r /etc/dnsmasq/query.log
-
 4. host主机的DNS设置为监听127.0.0.1
 # 配置 /etc/resolv.conf
 # 如果NetworkManager接管了dns，则要修改其中的网络链接
-
+============================= 3. dnsmasq 容器使用的配置 =============================
 #  配置了基本配置，hosts 可另外放一个conf文件到当前目录
 ################ dns base config #####################
 # 强制使用完整的解析名
 domain-needed
-
 # 定义dnsmasq监听的地址, 127指本地缓存， 192做内网dns, 最好单独使用
 # listen-address=127.0.0.1,192.168.x.x  #  监听本机则用192
-# 同理 在docker 内部，则是 127（local)和172（容器内的Ip）否则外部访问不到dnsserver
+###### 监听设定  重点 ######
+同理 在docker 内部，则是 127（local)和172（容器内的Ip）否则外部访问不到dnsserver
 # listen-address=127.0.0.1,172.17.0.2
 listen-address=127.0.0.1
 listen-address=::1
