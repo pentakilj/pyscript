@@ -4,14 +4,18 @@
 # generate a two keys, private and public, your login email?? hope so
 # and it will be in ssh cache, if don't want to input password, just don't input when create
 ssh-keygen -t rsa -C "mail address"
+# pacman -S openssh
 
 #  not  nesersary? add key to ssh-agent
 eval "$(ssh-agent -s)"
 > here will show process' pid
+# ssh-add /home/cooler/.ssh/git
 ssh-add ~/.ssh/id_ras  # add you key, not pub
 # ssh-add -l list  key  -d delete key -D delete all key
 
-
+# 如果用的保留的密钥，下面步骤要过一次
+# chmod 0600 /home/cooler/.ssh/git
+# chmod 0644 /home/cooler/.ssh/git.pub
 # copy public key's content to github ssh key
 # test connection
 ssh -T git@github.com
