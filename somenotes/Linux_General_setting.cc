@@ -72,7 +72,7 @@ Manjaro( Arch ):
   # 思源字体 及 abobe开源
   sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
   ##  mkdir .config/fontconfig
-  #
+  # 自动微调 微调 抗锯齿 内嵌点阵字体
   vim .config/fontconfig/fonts.conf  增加字体配置文件，更好看，不虚化，参加其他配置文件
 
   # 主要软件， 不要 pepper-flash flashplugin gedit ， virtualbox根据内核单独配置， office
