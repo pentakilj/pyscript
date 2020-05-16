@@ -75,8 +75,8 @@ Manjaro( Arch ):
   # 自动微调 微调 抗锯齿 内嵌点阵字体
   vim .config/fontconfig/fonts.conf  增加字体配置文件，更好看，不虚化，参加其他配置文件
 
-  # 主要软件， 不要 pepper-flash flashplugin gedit ， virtualbox根据内核单独配置， office
-  sudo pacman -S arc-gtk-theme  vlc vim audacity audacious inkscape bleachbit stellarium git nmap screenfetch tree xed docker firefox chromium transmission-gtk thunderbird atom curl redshift fcitx fcitx-googlepinyin fcitx-gtk3 fcitx-configtool bash-completion virtualbox libreoffice-still
+  # 主要软件， 不要 pepper-flash flashplugin gedit ， virtualbox根据内核单独配置， office, meld (diff GUI), brige: qv2ray and it's core
+  sudo pacman -S arc-gtk-theme  vlc vim audacity audacious inkscape bleachbit stellarium git nmap screenfetch tree xed docker firefox chromium transmission-gtk thunderbird atom curl redshift fcitx fcitx-googlepinyin fcitx-gtk3 fcitx-configtool bash-completion virtualbox libreoffice-still meld
   # 增加docker 用户
   sudo groupadd docker
   sudo usermod -aG docker $USER

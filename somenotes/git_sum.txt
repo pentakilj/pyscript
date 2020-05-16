@@ -22,7 +22,14 @@ ssh -T git@github.com
 # global configuration
 git config --global user.email "mail address"
 git config --global user.name "login name"
-
+# 如果配置好了ssh key, git操作还是提升登录， 很可能是用https拉取的代码，执行一下步骤
+## START
+git remote remove origin
+git remote add origin git@github.com:username/proj_name.git
+# 需要先拉取一次，再执行下面步骤
+git pull origin master
+git branch --set-upstream-to=origin/master master
+## END
 
 # get sources
 git clone (ssh/https)_xxx.git / git remote add origin git@github:name/project.git
