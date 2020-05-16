@@ -44,10 +44,16 @@ Manjaro( Arch ):
   sudo pacman -Sc
   ## docker sources
   dnsmasq
+        build yourself
   nextcloud
   diygod
+        docker pull diygod/rsshub
+        docker run -d --name rsshub -p 1200:1200 diygod/rsshub
+        http://127.0.0.1:1200/
   numdup
+        forked
   163proxy
+        forked
   ## Manjaro conflict
   sudo rm -rf chrome/chromium/firefox
   #sudo rm  /usr/lib/firefox/distribution/distribution.ini
