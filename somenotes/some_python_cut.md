@@ -18,3 +18,7 @@ d.get(url)
 d.find_element_by id, xpath, class_name, link_text()
 d.find..element..().send_keys(xxx) , could be string or KEYS.enter From KEYBORAD.
 d.quit()
+
+
+## traceback.format_exc()
+抛出异常时，导入traceback，然后打印或抛出 traceback.format_exc()
