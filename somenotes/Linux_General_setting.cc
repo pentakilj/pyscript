@@ -119,7 +119,17 @@ Manjaro( Arch ):
   sudo pacman -S virtualbox
   sudo modprobe vboxdrv
   sudo pacman -Sc
-
+  ----------- e. Pycharm Community Edition -----------
+  ## https://archive.archlinux.org/packages/p/pycharm-community-edition/
+  ## sudo pacman -S downgrade  # 安装降级软件
+  ## export DOWNGRADE_FROM_ALA=1  # 设置允许降级环境变量
+  ## 若干直接降级下载失败，可以先下载软件包及签名文件，然后复制到/var/cache/pacman/pkg/
+  ## 再安装
+  ## downgrade pycharm-community-edition  # 降级
+  ## 或者 直接下载旧的软件包 然后按照
+  ## sudo pacman -U /var/cache/pacman/pkg/firefox-64.0.2-1-x86_64.pkg.tar.xz
+  ## 添加到忽略升级 /etc/pacman.conf
+  ## IgnorePkg = pycharm-community-edition
   ============== 5. 中文配置， 得先安装字体 ==============
   sudo pacman -S ttf-roboto noto-fonts ttf-dejavu
   # 文泉驿
