@@ -188,4 +188,8 @@
       route del
       # 删除时不需要指定网关， 但是要是明确的IP， 即为 IP加上netmast，或者ip段
 
+    32. renice 提升进程优先级
+    33. 查看各种状态 vmstat iostat
+
+
    21 shell for, if , while, done
