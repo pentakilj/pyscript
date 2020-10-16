@@ -130,6 +130,15 @@ Manjaro( Arch ):
   ## sudo pacman -U /var/cache/pacman/pkg/firefox-64.0.2-1-x86_64.pkg.tar.xz
   ## 添加到忽略升级 /etc/pacman.conf
   ## IgnorePkg = pycharm-community-edition
+  ----------- f. xrdp Remote Desktop Protocol -----------
+  ## when lonin , choose vnc (better), and will wait for a while
+  ## sudo pacman -Sy xrdp
+  ## start xrdp services.
+  ## sudo systemctl enable xrdp ; sudo systemctl start xrdp
+  ## sudo systemctl enable xrdp-sesman ; sudo systemctl start xrdp-sesman
+  ## Set start session
+  ## add below content to last line of file: /etc/xrdp/xrdp.ini
+  ## exec startcinnnamon
   ============== 5. 中文配置， 得先安装字体 ==============
   sudo pacman -S ttf-roboto noto-fonts ttf-dejavu
   # 文泉驿
