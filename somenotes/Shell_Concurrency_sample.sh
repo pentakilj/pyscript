@@ -43,6 +43,8 @@ function main()
           echo >&3
         # { } 里面的程序块后台执行 &
         }&
+        # inner var for loop change
+        # loop_var=$[${i}+100]
     done
 }
 # 主进程
