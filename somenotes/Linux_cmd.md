@@ -1,5 +1,8 @@
 `嵌套 cmd` 命令中嵌套命令
 循环  for name in `find ./ -name abc`;do ls -l $name; done
+0. some basic cmd:
+  ls -d */ : list current dir's all dir files
+  dig domain / drill domain : network check
 1. netstate 查看绑定端口
     netstale -lntp -l listenning
     netstate -antp    -a all -n show port as number -t tcp protocal -p program
@@ -99,6 +102,7 @@
 
 6. date 显示特定格式的时间（ man date） （文档，日志等）
     date
+    date "+%s"  # time string
     date "+%Y-%m-%d %H:%M:%S"
     date "+%Y-%b-%d %H:%M:%S"
 
@@ -141,55 +145,63 @@
     --delete 删除指定文件
     --strip-conponents 跳过指定目录层数
 
-   15. nl  给文件加上行好
-   16. sort 排序
-   17. uniq 去重
-   18. paste 组合文件
-   19. wc 统计行数 -l
-    20. diff 对比文件 -c 详细打印
-    21. chown  root:root file 改变属主和组
-    22. chmod 改变权限  -rwx rwx rwx 777
-    23. job 查看后台任务
-    24. fg 调出后台任务
-    25. kill 杀死进程 -9 pid ， %id 杀死后台进程
-	   killall cmd, 杀死一系列相同的命令
-    26. ps 查看进程， ef aux
-      -aux 包含进程状态
-      xf 显示进程树
-    27. faillock --reset
-        arch用的 faillog
-    28. xargs
-      -i{} 使用特定标志{}代替变量
-    29. chcon selinux安全配置
-      ls -Z 可以查看, 主要有 user, role, type
-    30. 文件监控审计
-      -p war  # 监控文件 读，写，权限变化
-      -p x    # 监控命令的执行
-      -w  path
-      -k keyword
-      auditctl -w /root/aa -p awr -k aa_test # 文件监控
-      auditctl -w /bin/ps -p x -k ex #命令监控
-      # 搜索查看audit事件
-      ausearch -c cmd # 用cmd搜索
-      ausearch -k keywd # 用keyword搜索，可在设置规则时定义key
-    31. route
-      # 默认执行查看路由变，并解析为hostname
-      # 以数字得形式列出路由，不解析为hostname
-      route -n
+  15. nl  给文件加上行好
+  16. sort 排序
+  17. uniq 去重
+  18. paste 组合文件
+  19. wc 统计行数 -l
+  20. diff 对比文件 -c 详细打印
+  21. chown  root:root file 改变属主和组
+  22. chmod 改变权限  -rwx rwx rwx 777
+  23. job 查看后台任务
+  24. fg 调出后台任务
+  25. kill 杀死进程 -9 pid ， %id 杀死后台进程
+   killall cmd, 杀死一系列相同的命令
+  26. ps 查看进程， ef aux
+    -aux 包含进程状态
+    xf 显示进程树
+  27. faillock --reset
+      arch用的 faillog
+  28. xargs
+  -i{} 使用特定标志{}代替变量
+  29. chcon selinux安全配置
+    ls -Z 可以查看, 主要有 user, role, type
+  30. audit文件监控审计
+    -p war  # 监控文件 读，写，权限变化
+    -p x    # 监控命令的执行
+    -w  path
+    -k keyword
+    auditctl -w /root/aa -p awr -k aa_test # 文件监控
+    auditctl -w /bin/ps -p x -k ex #命令监控
+    # 搜索查看audit事件
+    ausearch -c cmd # 用cmd搜索
+    ausearch -k keywd # 用keyword搜索，可在设置规则时定义key
+  31. route
+    # 默认执行查看路由变，并解析为hostname
+    # 以数字得形式列出路由，不解析为hostname
+    route -n
 
-      # 添加路由  ，均为临时路由
-      route add
-      # 需要指明添加得目标,如 -net 网络 -host 设备， 并填写能定位到
-      # 准确地址的IP地址， 如 192.3.4.0/24 或者 加上子网掩码 255.255.255.0来指定
-      # IP地址范围， 最后必须加上网关，才能使这条路由生效，可达
-      route add -net ip_addr netmask 255.255.255.0 gw gateway_ip
+    # 添加路由  ，均为临时路由
+    route add
+    # 需要指明添加得目标,如 -net 网络 -host 设备， 并填写能定位到
+    # 准确地址的IP地址， 如 192.3.4.0/24 或者 加上子网掩码 255.255.255.0来指定
+    # IP地址范围， 最后必须加上网关，才能使这条路由生效，可达
+    route add -net ip_addr netmask 255.255.255.0 gw gateway_ip
 
-      # 删除路由
-      route del
-      # 删除时不需要指定网关， 但是要是明确的IP， 即为 IP加上netmast，或者ip段
+    # 删除路由
+    route del
+    # 删除时不需要指定网关， 但是要是明确的IP， 即为 IP加上netmast，或者ip段
 
-    32. renice 提升进程优先级
-    33. 查看各种状态 vmstat iostat
+  32. renice 提升进程优先级
+  33. 查看各种状态 vmstat iostat
+  34. dd tranfer and copy files
+    -if input files or std input
+    -of output files or std output
+    -conv notrunc (not cut output files, continue output)
+    -bs in/output file block/iosize 1k , 8k
+    -skip skip n(bs k/m) then read input files
+    -seek skip n(bs k/m) then write to output files
+    -count operation times
 
 
-   21 shell for, if , while, done
+  21 shell for, if , while, done
