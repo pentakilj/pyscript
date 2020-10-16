@@ -132,6 +132,7 @@ Manjaro( Arch ):
   ## IgnorePkg = pycharm-community-edition
   ----------- f. xrdp Remote Desktop Protocol -----------
   ## when lonin , choose vnc (better), and will wait for a while
+  ## isthere better way ???
   ## sudo pacman -Sy xrdp
   ## start xrdp services.
   ## sudo systemctl enable xrdp ; sudo systemctl start xrdp
