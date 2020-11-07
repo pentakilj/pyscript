@@ -194,7 +194,7 @@
 
   32. renice 提升进程优先级
   33. 查看各种状态 vmstat iostat
-  34. dd tranfer and copy files
+  34. dd tranfer and copy files (备份文件某一段，写随机到这一段，在写回来)
     -if input files or std input
     -of output files or std output
     -conv notrunc (not cut output files, continue output)
