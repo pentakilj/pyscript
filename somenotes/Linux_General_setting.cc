@@ -169,8 +169,9 @@ Manjaro( Arch ):
   #sudo pacman -R firefox-i18n-zh-cn firefox-i18n-en-us thunderbird-i18n-en-us thunderbird-i18n-zh-cn npapi-vlc vlc-nightly
   #sudo pacman -R firefox thunderbird transmission-gtk
 
-  ## Python2.7 && packages
-  sudo pacman -S python2-pip
+  ## Python2.7 && packages tk for Tkinter GUI
+  sudo pacman -S python2-pip tk
+
   sudo ln -sf /usr/bin/pip2 /usr/bin/pip
   ## all pack are install to ~/.local/ , need to add ~/.local/bin to env path
   pip install --user ipython virtalenv(?)
