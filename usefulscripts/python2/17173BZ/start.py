@@ -5,7 +5,6 @@
 
 import BZ17173
 import savefile
-import os
 import time
 from multiprocessing import Process,Lock
 
