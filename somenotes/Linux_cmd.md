@@ -164,6 +164,10 @@
       arch用的 faillog
   28. xargs
   -i{} 使用特定标志{}代替变量
+  -P50 如果管道中参数足够，以50个进程并发执行命令（命令最好以 sh -c ' ' / bash -c ' '的形式执行）
+  -n1 每次1个参数，没设置此参数，则能传多少传多少
+    # 50 个进程并发创建 file_1 - file_50 (每次传一个参数)
+    seq 50 | xargs -P50 -n1 -i sh -c 'touch seq_xargs_file_{}; sleep 10'
   29. chcon selinux安全配置
     ls -Z 可以查看, 主要有 user, role, type
   30. audit文件监控审计
@@ -203,5 +207,10 @@
     -seek skip n(bs k/m) then write to output files
     -count operation times
 
-
+  35. nmap 扫描
+    某ip段 某端口状态
+    nmap -p 80 -sT "192.168.1.*"
+  36. seq 生成一段数组
+    seq 50  1 - 50
+    seq 51 100 51-100
   21 shell for, if , while, done
