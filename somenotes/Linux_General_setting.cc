@@ -81,6 +81,9 @@ Manjaro( Arch ):
   # others : gnome map, redshift, net-tools for ifconfig and route, bind-tools(dnsutils) for dig and nslookup
   # night light, ~/.config/redshift.conf
   sudo pacman -S redshift python-xdg (for redshift) #Okular(PDF)
+  ## 4. youtube-dl
+  curl -L https://yt-dl.org/downloads/latest/youtube-dl -o ./youtube-d
+  chmod a+rx youtube-dl
   ----------- a. docker -----------
   # 增加docker 用户, 用户组
   sudo groupadd docker
@@ -142,6 +145,7 @@ Manjaro( Arch ):
   ## exec startcinnnamon
   ----------- f. 文件共享 smb -----------
   ## 访问windows共享需要smb协议， 默认不带配置文件 可安装 manjaro-settings-samba， 获取配置文件
+  ## 若samba和配置已完成，可直接通过文件管理器smb://192.168.1.6/ 访问
   sudo pacman -Sy samba
   ## 查看可用共享
   smbclient -L //192.168.1.6 -U JACSG
