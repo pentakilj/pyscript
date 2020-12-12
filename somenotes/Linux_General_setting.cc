@@ -130,7 +130,7 @@ Manjaro( Arch ):
   ## sudo pacman -U /var/cache/pacman/pkg/firefox-64.0.2-1-x86_64.pkg.tar.xz
   ## 添加到忽略升级 /etc/pacman.conf
   ## IgnorePkg = pycharm-community-edition
-  ----------- f. xrdp Remote Desktop Protocol -----------
+  ----------- f. 远程访问 xrdp Remote Desktop Protocol -----------
   ## when lonin , choose vnc (better), and will wait for a while
   ## isthere better way ???
   ## sudo pacman -Sy xrdp
@@ -140,6 +140,13 @@ Manjaro( Arch ):
   ## Set start session
   ## add below content to last line of file: /etc/xrdp/xrdp.ini
   ## exec startcinnnamon
+  ----------- f. 文件共享 smb -----------
+  ## 访问windows共享需要smb协议， 默认不带配置文件 可安装 manjaro-settings-samba， 获取配置文件
+  sudo pacman -Sy samba
+  ## 查看可用共享
+  smbclient -L //192.168.1.6 -U JACSG
+  ## 命令行挂载 CIFS ，暂时有问题
+  mount -t cifs -o username=JACSG //192.168.1.6/ ./ win10/
   ============== 5. 中文配置， 得先安装字体 ==============
   sudo pacman -S ttf-roboto noto-fonts ttf-dejavu
   # 文泉驿
