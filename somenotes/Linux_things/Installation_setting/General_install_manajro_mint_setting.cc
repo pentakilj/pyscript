@@ -89,17 +89,7 @@ Manjaro( Arch ):
   sudo groupadd docker
   sudo usermod -aG docker $USER
   ######### docker sources ############
-  dnsmasq
-        build yourself
-  nextcloud
-  diygod
-        docker pull diygod/rsshub
-        docker run -d --name rsshub -p 1200:1200 diygod/rsshub
-        http://127.0.0.1:1200/
-  numdup
-        forked
-  163proxy
-        forked
+  # Chedck Docker_instances file
   ----------- b. Atom -----------
   ## 需要的插件， 列选择，  中文包
   Sublime-Style-Column-Selection
@@ -177,6 +167,7 @@ Manjaro( Arch ):
   # uninstall
   mhwd -r pci name
   # card state : nvidia-smi
+  # 如果出问题，卸载所有nvidia驱动和包，包括mhwd ,然后重新安装
 
   ## Manjaro conflict
   sudo rm -rf chrome/chromium/firefox

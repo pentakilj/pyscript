@@ -1,0 +1,71 @@
+print ' ' % argv 打印 变量
+\n          换行符 newline
+#           注释 comment
+/           除法 整除，取整 divide
+%           取余
++           加法
+-           减法,负号
+*           乘法,引导指针
+<=, <, >=, >,==, !=, and,or,not , True,False 布尔逻辑
+int float    1, 1.0
+_           下划线 underscore
+=           赋值符，赋值运算,优先级低 *= += -= /=, binding
+%d，%s,%c,%r,%o,%x,%f          格式化字符
+\           转义字符
+’‘’， “”“   多行控制, 函数说明
+\t          制表符
+\\ ,\', \"
+raw_input(), input()    输入字符串，输入可识别的任意数据
+from ... import ... /import      从。。引入 。。模块 / 引入模块(需要调用整个class 接 . 调用函数)
+*argv(def ..(*argv):)       任意参数（类似于指针）, 定义函数时，传入参数到函数 or 引入模块时，传入
+    参数到脚本
+open(...), read(),write()，close()  打开文件，读取文件，写入文件,关闭文件
+truncate() 清空文件 seek(0) 去文件最开始的位置
+readline(s),writeline(s)
+from sys import argv, from os.path import exists 引入参数模块*argv，引入是否存在模块exists(file)
+from sys import exit exit(0)退出
+def ...(..):  define定义函数function, : colon, 4空格缩进indent
+    ...
+    ...
+...+=   <==>  .. = .. + ..
+return value 
+if .....:    #  if 接表达式，为真，执行：后面区块的代码，为假，elif，同理一直到else
+    ...	     #  4空格缩进indent
+elif ...:    #  if语句为代码创建了一个分支， 如果这个布尔表达式为真，就运行接下来的代码，否则
+    ...      #  就跳过这一段。
+else:
+    ...      #  Python 的规则里，只要一行以冒号 ：(colon)结尾,他接下来的内容就要4空格缩进indent
+             #  if 语句还可以包含另外多个if ，进行判断 即 嵌套nested
+
+list = [ .., ...,...] 初始化列表
+ L.append(),L.count(),L.pop,L.insert(),L.extend() 
+ 
+ dict d = {} (key, value) pairs 字典内是无序的，但是一一对应，可以放入函数(函数字典，类似与class)。（ep40)(函数
+    也可以作为一个变量）
+ 
+ in         # 在里面， in lists/string 用来判断（if in: ...) 或者 循环（迭代）
+for-loop.
+for list in lists:
+    ...
+    ...
+for i in range(...):  # range(start, end, step) range(5) 0 - 4, range(1,5) 1 - 4 
+    ...		      # range(0,5,2) 0, 2, 4
+    ...
+while-loop
+while ... :         #while-loop，确保布尔表达式最终变成False
+    ...
+    ...
+ while lists:# list中还存在元素
+    lists[0] ....
+    lists = lists[1:]# 去掉第一个元素，进入下次循环（循环控制）
+    
+ordinal number 序数，平常数学排序用，由1开始；cardianl number 基数（index）元素地址或索引
+由0 开始。
+int(x,base= 0 or 2~36) 0 整数， 2～36进制:将字符串或其他类型的数转化成int整型 当大于等于10后，其他进制引入了字母，可以用来判断是否带有字母（字符串）。
+
+在包含循环的判断时： 定义一个初始逻辑值，然后开始循环，在循环内决定是否改变逻辑值，进入下一次循环时再判断逻辑值是否改变(如ep35.py)
+
+
+Object-oriented programming 面向对象程序设计 可以理解为： 一种将程序
+分解为封装数据及相关操作的模块而进行的编程方式。因而OOP中的数据类型不仅
+有着状态，还有相关的行为
